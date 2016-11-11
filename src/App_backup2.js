@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import './bootstrap.min.css';
-import {Button} from 'react-bootstrap';
-import {Grid,Row,Col} from 'react-bootstrap';
 
 class App extends Component {
   render() {
@@ -14,14 +11,8 @@ class App extends Component {
           <h2>Emotion Management</h2>
         </div>
 
-<<<<<<< HEAD
         <Welcome userName={"Emotion Trainer & Management"}/>
         <TimeTable/>
-=======
-        {/*<Welcome userName={"Emotion Trainer & Management"}/>*/}
-        <TimeTable />
-        <Button>Hello World </Button>
->>>>>>> origin/master
       </div>
     );
   }
@@ -60,61 +51,6 @@ class TimeTable extends Component {
     }
 }
 
-class TimeTable extends Component {
-  constructor(props){
-    super(props);
-    this.state = {selectedEntry:"xxx"};
-    this.onSelectChange = this.onSelectChange.bind(this);
-  }
-
-  onSelectChange(timeRange){
-    this.setState({selectedEntry:timeRange});
-  }
-
-  render(){
-    return (
-      <div>
-        <Grid>
-          <Row>
-            <Col xs={12} xsOffset={0} >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="09:00AM - 10:00AM" selectedEntry={this.state.selectedEntry} isBooked={true}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} xsOffset={0}  >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="10:00AM - 11:00AM" selectedEntry={this.state.selectedEntry}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={2} xsOffset={5} >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="11:00AM - 12:00AM" selectedEntry={this.state.selectedEntry}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={2} xsOffset={5} >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="01:00PM - 02:00PM" selectedEntry={this.state.selectedEntry}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={2} xsOffset={5} >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="02:00PM - 03:00PM" selectedEntry={this.state.selectedEntry}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={2} xsOffset={5} >
-              <TimeEntry onSelect={this.onSelectChange} timeRange="04:00PM - 05:00PM" selectedEntry={this.state.selectedEntry}/>
-            </Col>
-          </Row>
-
-        </Grid>
-
-
-      </div>
-    )
-
-  }
-}
-
 class Welcome extends Component {
   constructor(props){
     super(props);
@@ -129,7 +65,6 @@ class TimeEntry extends Component {
 
   constructor(props){
     super(props);
-<<<<<<< HEAD
     this.state = {timeRange: props.timeRange, isBooked: false, OnSelect:props.OnSelect };
     this.onClick = this.onClick.bind(this);
     console.log("isSelected" + props.isSelected);
@@ -146,29 +81,6 @@ class TimeEntry extends Component {
 
 
 
-=======
-    this.state = {isSelected: false};
-    this.onBook = this.onBook.bind(this);
-
-  }
-
-  componentWillReceiveProps(nextProps){ //This won't trigger another render
-    this.setState({isSelected:this.props.timeRange === nextProps.selectedEntry?true:false});
-  }
-
-  render() {
-    return <div className="Avail-Slot"><TimeLabel timeRange={this.props.timeRange} />{(this.props.isBooked ? "Booked":"Avaliable") + (this.state.isSelected? "Selected":"Unselected")} {this.props.isBooked?null:<button onClick={this.onBook}>Book Me</button>}</div>
-  }
-
-  onBook(){
-    this.props.onSelect(this.props.timeRange);
-    //console.log("==>");
-    //console.log(this.props.selectedEntry);
-    //console.log(this.props.timeRange);
-    //console.log("<==")
-    //this.setState({isSelected:this.props.timeRange === this.props.selectedEntry?true:false});
-
->>>>>>> origin/master
   }
 
   //book(){
@@ -181,10 +93,13 @@ class TimeEntry extends Component {
 }
 
 class TimeLabel extends Component {
-
+  constructor(props){
+    super(props);
+    this.state = {timeRange: props.timeRange};
+  }
 
   render() {
-    return <div>{this.props.timeRange}</div>
+    return <div>{this.state.timeRange}</div>
   }
 }
 
