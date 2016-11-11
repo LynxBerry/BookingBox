@@ -22,3 +22,18 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Avail-Slot {
+  color: green;
+  background-color: #222;
+  margin: 2px;
+  width: 200px;
+  margin-left:auto;
+  margin-right:auto;
+  border-width:1px;
+  border-color: green;
+  border-style:solid;
+
+
+
+}

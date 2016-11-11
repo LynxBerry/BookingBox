@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import './bootstrap.min.css';
+import {Button} from 'react-bootstrap';
+import {Grid,Row,Col} from 'react-bootstrap';
 
 class App extends Component {
   render() {
@@ -11,8 +14,9 @@ class App extends Component {
           <h2>Emotion Management</h2>
         </div>
 
-        <Welcome userName={"Emotion Trainer & Management"}/>
+        {/*<Welcome userName={"Emotion Trainer & Management"}/>*/}
         <TimeTable />
+        <Button>Hello World </Button>
       </div>
     );
   }
@@ -32,12 +36,41 @@ class TimeTable extends Component {
   render(){
     return (
       <div>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="09:00AM - 10:00AM" selectedEntry={this.state.selectedEntry} isBooked={true}/>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="10:00AM - 11:00AM" selectedEntry={this.state.selectedEntry}/>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="11:00AM - 12:00AM" selectedEntry={this.state.selectedEntry}/>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="01:00PM - 02:00PM" selectedEntry={this.state.selectedEntry}/>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="02:00PM - 03:00PM" selectedEntry={this.state.selectedEntry}/>
-        <TimeEntry onSelect={this.onSelectChange} timeRange="04:00PM - 05:00PM" selectedEntry={this.state.selectedEntry}/>
+        <Grid>
+          <Row>
+            <Col xs={12} xsOffset={0} >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="09:00AM - 10:00AM" selectedEntry={this.state.selectedEntry} isBooked={true}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} xsOffset={0}  >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="10:00AM - 11:00AM" selectedEntry={this.state.selectedEntry}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={2} xsOffset={5} >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="11:00AM - 12:00AM" selectedEntry={this.state.selectedEntry}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={2} xsOffset={5} >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="01:00PM - 02:00PM" selectedEntry={this.state.selectedEntry}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={2} xsOffset={5} >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="02:00PM - 03:00PM" selectedEntry={this.state.selectedEntry}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={2} xsOffset={5} >
+              <TimeEntry onSelect={this.onSelectChange} timeRange="04:00PM - 05:00PM" selectedEntry={this.state.selectedEntry}/>
+            </Col>
+          </Row>
+
+        </Grid>
+
+
       </div>
     )
 
@@ -68,7 +101,7 @@ class TimeEntry extends Component {
   }
 
   render() {
-    return <div><TimeLabel timeRange={this.props.timeRange} />{(this.props.isBooked ? "Booked":"Avaliable") + (this.state.isSelected? "Selected":"Unselected")} {this.props.isBooked?null:<button onClick={this.onBook}>Book Me</button>}</div>
+    return <div className="Avail-Slot"><TimeLabel timeRange={this.props.timeRange} />{(this.props.isBooked ? "Booked":"Avaliable") + (this.state.isSelected? "Selected":"Unselected")} {this.props.isBooked?null:<button onClick={this.onBook}>Book Me</button>}</div>
   }
 
   onBook(){
