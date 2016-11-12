@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -24,15 +24,32 @@
 }
 
 .Avail-Slot {
-  color: green;
-  background-color: #222;
+  color: #222;
+  background-color: white;
   margin: 2px;
   width: 200px;
   margin-left:auto;
   margin-right:auto;
   border-width:1px;
-  border-color: green;
+  border-color: #d5d5d5;
   border-style:solid;
+  padding: 5px;
+
+
+
+}
+
+.Unavail-Slot {
+  color: #d5d5d5;
+  background-color: white;
+  margin: 2px;
+  width: 200px;
+  margin-left:auto;
+  margin-right:auto;
+  border-width:1px;
+  border-color: #d5d5d5;
+  border-style:solid;
+  padding: 5px;
 
 
 

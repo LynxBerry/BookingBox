@@ -11,51 +11,19 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
            {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          <h2>Emotion Management</h2>
+          Emotion Studio
         </div>
 
 
-        {/*<Welcome userName={"Emotion Trainer & Management"}/>*/}
+        <div>{"Time Reserve"}</div>
         <TimeTable />
-        <Button>Hello World </Button>
+        <Button>Next</Button>
 
       </div>
     );
   }
 }
-class TimeTable extends Component {
-    constructor(props){
-        super(props);
-        this.state = {selectedEntry:"xxx"};
-        this.onSelectChange = this.onSelectChange.bind(this);
-    }
 
-
-
-
-
-    onSelectChange(timeRange){
-        console.log("timeRange"+ timeRange);
-        console.log("selectedEntry"+this.state.selectedEntry);
-        console.log("10:00AM - 11:00AM" === this.state.selectedEntry ? true:false);
-        this.setState({selectedEntry:timeRange});
-        console.log("rabit");
-
-    }
-    render() {
-        console.log("render");
-        return (
-            <div>
-            <TimeEntry onSelect={this.onSelectChange} timeRange="9:00AM - 10:00AM" selectedEntry={this.state.selectedEntry} />
-            <TimeEntry onSelect={this.onSelectChange} timeRange="10:00AM - 11:00AM" selectedEntry={this.state.selectedEntry} />
-            <TimeEntry onSelect={this.onSelectChange} timeRange="11:00AM - 12:00AM" selectedEntry={this.state.selectedEntry} />
-            <TimeEntry onSelect={this.onSelectChange} timeRange="01:00PM - 02:00PM" selectedEntry={this.state.selectedEntry} />
-            <TimeEntry onSelect={this.onSelectChange} timeRange="02:00PM - 03:00PM" selectedEntry={this.state.selectedEntry} />
-            <TimeEntry onSelect={this.onSelectChange} timeRange="04:00PM - 05:00PM" selectedEntry={this.state.selectedEntry} />
-            </div>
-        );
-    }
-}
 
 class TimeTable extends Component {
   constructor(props){
@@ -83,22 +51,22 @@ class TimeTable extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={2} xsOffset={5} >
+            <Col xs={12} xsOffset={0} >
               <TimeEntry onSelect={this.onSelectChange} timeRange="11:00AM - 12:00AM" selectedEntry={this.state.selectedEntry}/>
             </Col>
           </Row>
           <Row>
-            <Col xs={2} xsOffset={5} >
+            <Col xs={12} xsOffset={0} >
               <TimeEntry onSelect={this.onSelectChange} timeRange="01:00PM - 02:00PM" selectedEntry={this.state.selectedEntry}/>
             </Col>
           </Row>
           <Row>
-            <Col xs={2} xsOffset={5} >
+            <Col xs={12} xsOffset={0} >
               <TimeEntry onSelect={this.onSelectChange} timeRange="02:00PM - 03:00PM" selectedEntry={this.state.selectedEntry}/>
             </Col>
           </Row>
           <Row>
-            <Col xs={2} xsOffset={5} >
+            <Col xs={12} xsOffset={0} >
               <TimeEntry onSelect={this.onSelectChange} timeRange="04:00PM - 05:00PM" selectedEntry={this.state.selectedEntry}/>
             </Col>
           </Row>
@@ -136,7 +104,18 @@ class TimeEntry extends Component {
   }
 
   render() {
-    return <div className="Avail-Slot"><TimeLabel timeRange={this.props.timeRange} />{(this.props.isBooked ? "Booked":"Avaliable") + (this.state.isSelected? "Selected":"Unselected")} {this.props.isBooked?null:<button onClick={this.onBook}>Book Me</button>}</div>
+    var indicator = this.state.isSelected ? {float:'left', paddingLeft:'5px',paddingTop:'3px'}:{float:'left', paddingLeft:'5px',paddingTop:'5px',color:'white'};
+    return (
+        <div className={this.props.isBooked? "Unavail-Slot":"Avail-Slot"}>
+
+                <div style={indicator}>{"*"}</div>
+
+
+                <div onClick={this.props.isBooked?null:this.onBook}><TimeLabel timeRange={this.props.timeRange} /> </div>
+
+        </div>
+    )
+
   }
 
   onBook(){
