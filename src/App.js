@@ -6,6 +6,7 @@ import './bootstrap.min.css';
 import {Button} from 'react-bootstrap';
 import {Grid,Row,Col} from 'react-bootstrap';
 
+
 class App extends Component {
   render() {
     return (
@@ -68,6 +69,14 @@ class WelcomeStepInfo extends Component {
 }
 
 class WelcomePage extends Component {
+    constructor(props){
+        super(props);
+        this.goToNextPage = this.goToNextPage.bind(this);
+    }
+
+    goToNextPage(){
+        browserHistory.push('/selectdate');
+    }
 
 
   render() {
@@ -77,8 +86,8 @@ class WelcomePage extends Component {
         <WelcomeInfo />
         <WelcomeStepInfo />
         <div>
-          //this is not good.
-          <Button href="/timereserve">{"开始预约"}</Button>
+          {/*this is not good.*/}
+          <Button onClick={this.goToNextPage}>{"开始预约"}</Button>
         </div>
         <div>
           <Button>{"我的预约"}</Button>

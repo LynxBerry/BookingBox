@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import App from './App';
 import {WelcomePage, TimeReservePage} from './App';
+import {SelectDatePage} from './SelectDatePage.js';
 import './index.css';
 
 ReactDOM.render((
@@ -10,6 +11,7 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={WelcomePage} />
       <Route path="timereserve" component={TimeReservePage}/>
+      <Route path="selectdate" component={SelectDatePage}/>
     </Route>
   </Router>
   ), document.getElementById('root')
