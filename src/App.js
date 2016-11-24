@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 //import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css';
@@ -14,12 +15,76 @@ class App extends Component {
           Emotion Studio
         </div>
 
+        <div>
+          {this.props.children}
+        </div>
 
-        <div>{"Time Reserve"}</div>
-        <TimeTable />
-        <Button>Next</Button>
+
 
       </div>
+    );
+  }
+}
+
+// This is for time reserve page.
+class TimeReservePage extends Component {
+  render() {
+      return (
+        <div>
+          <div>{"Time Reserve"}</div>
+          <TimeTable />
+          <Button>Next</Button>
+        </div>
+      )
+  }
+
+}
+
+class WelcomeInfo extends Component {
+  render() {
+    return (
+      <div>
+        <div> {"预约项目说明"} </div>
+        <div> {"预约成功后订单不可更改，如需取消将产生订金损失，退款规则如下："} </div>
+        <div> {"距培训时间72小时以上取消订单，退99%订金"} </div>
+        <div> {"距培训时间48-72小时取消订单，退50%订金"} </div>
+        <div> {"距培训时间不足48小时取消订单，不可退订金"} </div>
+
+      </div>
+    )
+  }
+}
+
+class WelcomeTitle extends Component {
+  render() {
+    return <div>{"Welcome Mr. Steven"}</div>;
+  }
+}
+
+class WelcomeStepInfo extends Component {
+  render() {
+    return <div>{"Steps: 1. Select coach; 2. Select Date; 3. Select Time; 4. Pay the deposite."}</div>;
+  }
+}
+
+class WelcomePage extends Component {
+
+
+  render() {
+    return (
+      <div>
+        <WelcomeTitle />
+        <WelcomeInfo />
+        <WelcomeStepInfo />
+        <div>
+          //this is not good.
+          <Button href="/timereserve">{"开始预约"}</Button>
+        </div>
+        <div>
+          <Button>{"我的预约"}</Button>
+        </div>
+      </div>
+
     );
   }
 }
@@ -150,3 +215,4 @@ class TimeLabel extends Component {
 
 
 export default App;
+export {WelcomePage, TimeReservePage};
