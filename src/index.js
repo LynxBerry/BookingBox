@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import App from './App';
-import {WelcomePage, TimeReservePage} from './App';
+import {WelcomePage} from './WelcomePage.js';
+import {TimeReservePage} from './TimeReservePage';
 import {SelectDatePage} from './SelectDatePage.js';
 import './index.css';
 

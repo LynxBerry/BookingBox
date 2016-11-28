@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 //import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css';
 import {Button} from 'react-bootstrap';
-import {Grid,Row,Col} from 'react-bootstrap';
 
 
 class SelectDatePage extends Component {
