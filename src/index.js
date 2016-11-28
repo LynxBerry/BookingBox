@@ -5,6 +5,7 @@ import App from './App';
 import {WelcomePage} from './WelcomePage.js';
 import {TimeReservePage} from './TimeReservePage';
 import {SelectDatePage} from './SelectDatePage.js';
+import {SelectCoachPage} from './SelectCoachPage.js';
 import './index.css';
 
 ReactDOM.render((
@@ -13,6 +14,7 @@ ReactDOM.render((
       <IndexRoute component={WelcomePage} />
       <Route path="timereserve" component={TimeReservePage}/>
       <Route path="selectdate" component={SelectDatePage}/>
+      <Route path="selectcoach" component={SelectCoachPage}/>
     </Route>
   </Router>
   ), document.getElementById('root')

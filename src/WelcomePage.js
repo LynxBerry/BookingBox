@@ -42,7 +42,7 @@ class WelcomePage extends Component {
 
     //--To DO: Change it to /SelectCoach
     goToNextPage(){
-        browserHistory.push('/selectdate');
+        browserHistory.push('/selectcoach');
     }
 
   render() {

@@ -106,3 +106,9 @@
     height: 1px;
     margin:auto;
 }
+
+#CoachList:after{
+  content: "";
+  display:table;
+  clear:both;
+}

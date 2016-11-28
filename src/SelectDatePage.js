@@ -15,10 +15,16 @@ class SelectDatePage extends Component {
     goToNextPage(){
         browserHistory.push('/timereserve');
     }
+
+    goToPrePage(){
+      browserHistory.push('/selectcoach');
+    }
     render(){
         return (
                 <div>
-                    <div className="DateList">
+                    <div style={{marginLeft:"15px",marginTop:"-30px",marginBottom:"25px", width:"60px", color:"white"}} onClick={this.goToPrePage}>{"Back<<"}</div>
+                    <div ><h5>{"2 Select availabe date"}</h5></div>
+                    <div className="DateList" style={{marginBottom:"10px"}}>
                         <DateEntry year="2016" month="October" day="01" weekDay="Monday"/>
                         <DateEntry year="2016" month="October" day="01" weekDay="Monday"/>
                         <DateEntry year="2016" month="October" day="01" weekDay="Monday"/>

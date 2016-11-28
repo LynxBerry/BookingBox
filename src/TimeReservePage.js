@@ -4,10 +4,14 @@ import {Button} from 'react-bootstrap';
 import {Grid,Row,Col} from 'react-bootstrap';
 // This is for time reserve page.
 class TimeReservePage extends Component {
+  goToPrePage(){
+    browserHistory.push('/selectdate');
+  }
   render() {
       return (
         <div>
-          <div>{"Time Reserve"}</div>
+          <div style={{marginLeft:"15px",marginTop:"-30px",marginBottom:"25px", width:"60px", color:"white"}} onClick={this.goToPrePage}>{"Back<<"}</div>
+          <div ><h5>{"3 Reserve time window"}</h5></div>
           <TimeTable />
           <Button>Next</Button>
         </div>
@@ -37,7 +41,7 @@ class TimeTable extends Component {
             </Row>
         )}) : null;
     return (
-      <div>
+      <div style={{marginBottom:"10px"}}>
         <Grid>
             {listTimeEntries}
         </Grid>
