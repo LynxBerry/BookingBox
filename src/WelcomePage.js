@@ -89,10 +89,10 @@ class WelcomePage extends Component {
         <WelcomeStepInfo isEnglish={this.props.isEnglish} />
 
         <div>
-          <Button onClick={this.goToNextPage} style={{width:"120px",margin:"10px"}}>{"Start Booking"}</Button>
+          <Button onClick={this.goToNextPage} style={{width:"120px",margin:"10px"}}>{this.props.isEnglish? "Start Booking":"开始预定"}</Button>
         </div>
         <div>
-          <Button style={{width:"120px"}} >{"My Bookings"}</Button>
+          <Button style={{width:"120px"}} >{this.props.isEnglish? "My Bookings":"我的预定"}</Button>
         </div>
       </div>
 
