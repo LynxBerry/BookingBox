@@ -11,7 +11,7 @@ class TimeReservePage extends Component {
       return (
         <div>
           <div style={{marginLeft:"15px",marginTop:"-30px",marginBottom:"25px", width:"60px", color:"white"}} onClick={this.goToPrePage}>{"Back<<"}</div>
-          <div ><h5>{"3 Reserve time window"}</h5></div>
+          <div><h5>{"3 Reserve time window"}</h5></div>
           <TimeTable />
           <Button>Next</Button>
         </div>

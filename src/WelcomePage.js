@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import {Button} from 'react-bootstrap';
+import axios from 'axios';
 //To do:
 // * uses ajax to fetch data
 // * Support Bi-language switch (English & Chinese)
@@ -71,6 +72,7 @@ class WelcomePage extends Component {
     constructor(props){
         super(props);
         //this.state = {isEnglish:true};
+        this.state = {userName:"Empty User"}
         this.goToNextPage = this.goToNextPage.bind(this);
     }
 
@@ -82,7 +84,7 @@ class WelcomePage extends Component {
   render() {
     return (
       <div>
-        <WelcomeTitle userName="James Chen" isEnglish={this.props.isEnglish} />
+        <WelcomeTitle userName={this.state.userName} isEnglish={this.props.isEnglish} />
         <div className="lineSeparator" />
         <WelcomeInfo isEnglish={this.props.isEnglish} />
         <div className="lineSeparator" />
@@ -98,6 +100,20 @@ class WelcomePage extends Component {
 
     );
   }
+
+  componentDidMount(){
+    var _this = this; //binding
+    this.serverRequest = axios.get("http://localhost:4567/session/xxxx").then(
+//http://localhost:4567/session/xxxx
+//http://codepen.io/jobs.json
+      (res)=>{
+
+         _this.setState({userName:res.data.username}
+
+         )});
+  }
+
+
 }
 
 export {WelcomePage};
